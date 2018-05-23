@@ -1,0 +1,73 @@
+[{
+	"title" : "仓库首页",
+	"icon" : "icon-computer",
+	"href" : "page/main.html",
+	"spread" : false
+},{
+	"title" : "进货",
+	"icon" : "&#xe630;",
+	"href" : "",
+	"spread" : false,
+	"children" : [
+		{
+			"title" : "进货单列表",
+			"icon" : "icon-text",
+			"href" : "page/inport/inport_list.html",
+			"spread" : false
+		},
+		{
+			"title" : "添加进货单",
+			"icon" : "&#xe631;",
+			"href" : "page/inport/inport_info.html",
+			"spread" : false
+		}
+	]
+},{
+	"title" : "销售",
+	"icon" : "&#xe630;",
+	"href" : "",
+	"spread" : false,
+	"children" : [
+		{
+			"title" : "销售单列表",
+			"icon" : "icon-text",
+			"href" : "page/sell/sell_list.html",
+			"spread" : false
+		},
+		{
+			"title" : "添加销售单",
+			"icon" : "&#xe631;",
+			"href" : "page/sell/sell_info.html",
+			"spread" : false
+		}
+	]
+},{
+	"title" : "货物",
+	"icon" : "&#xe630;",
+	"href" : "",
+	"spread" : false,
+	"children" : [
+		{
+			"title" : "货物列表",
+			"icon" : "icon-text",
+			"href" : "page/goods/goods_list.html",
+			"spread" : false
+		},
+		{
+			"title" : "添加货物",
+			"icon" : "&#xe631;",
+			"href" : "page/goods/goods_info.html",
+			"spread" : false
+		}
+	]
+},{
+	"title" : "进货结算列表",
+	"icon" : "icon-text",
+	"href" : "page/month/inport_list.html",
+	"spread" : false
+},{
+	"title" : "销售结算列表",
+	"icon" : "icon-text",
+	"href" : "page/month/sell_list.html",
+	"spread" : false
+}]
