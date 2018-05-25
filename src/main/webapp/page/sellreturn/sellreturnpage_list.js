@@ -42,10 +42,13 @@ layui.config({
             	{field: 'id', title: '退货单号',width:150}
                 ,{field: 'goodsName', title: '货物名称'}
                 ,{field: 'goodsCode', title: '货物单号'}
-                ,{field: 'createTime', title: '创建时间',sort: true,templet:'<div>{{ layui.laytpl.toDateString(d.createTime,"yyyy-MM-dd")}}</div>'}
+                ,{field: 'createTime', title: '创建时间',width:140,sort: true,templet:'<div>{{ layui.laytpl.toDateString(d.createTime,"yyyy-MM-dd")}}</div>'}
                 ,{field: 'sellReturnNumber', title: '数量'}
                 ,{field: 'goodsUnit', title: '单位'}
-                ,{field: 'sellReturnPrice', title: '退货总价（元）'}
+                ,{field: 'sellReturnPrice', title: '退货总价（元）',width:140}
+                ,{field: 'createBy', title: '退货单创建人'}
+                ,{field: 'sellReturnBy', title: '买家姓名'}
+                ,{field: 'phone', title: '买家电话',width:140}
                 ,{field:'doinvoice',title:'操作',toolbar:'#btnBar'}
             ]]
             ,data:res

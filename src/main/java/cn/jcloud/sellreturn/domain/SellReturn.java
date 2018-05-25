@@ -23,6 +23,9 @@ public class SellReturn extends BizDomain<Long> {
 	private Integer sellReturnNumber;
 	private String goodsUnit;
 	private Double sellReturnPrice;
+	private String createBy;
+	private String sellReturnBy;
+	private String phone;
 	public Long getGoodsId() {
 		return goodsId;
 	}
@@ -58,6 +61,24 @@ public class SellReturn extends BizDomain<Long> {
 	}
 	public void setSellReturnPrice(Double sellReturnPrice) {
 		this.sellReturnPrice = sellReturnPrice;
+	}
+	public String getCreateBy() {
+		return createBy;
+	}
+	public void setCreateBy(String createBy) {
+		this.createBy = createBy;
+	}
+	public String getSellReturnBy() {
+		return sellReturnBy;
+	}
+	public void setSellReturnBy(String sellReturnBy) {
+		this.sellReturnBy = sellReturnBy;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 	
 }

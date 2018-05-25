@@ -45,7 +45,7 @@ layui.config({
                 ,{field: 'createTime', title: '创建时间',sort: true,templet:'<div>{{ layui.laytpl.toDateString(d.createTime,"yyyy-MM-dd")}}</div>'}
                 ,{field: 'inportNumber', title: '数量'}
                 ,{field: 'goodsUnit', title: '单位'}
-                ,{field: 'inportPrice', title: '进货总价价（元）'}
+                ,{field: 'inportPrice', title: '进货总价（元）',width:140}
                 ,{field: 'createBy', title: '进货单创建人'}
                 ,{field:'doinvoice',title:'操作',toolbar:'#btnBar'}
             ]]
