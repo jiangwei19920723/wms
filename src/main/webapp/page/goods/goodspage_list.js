@@ -160,8 +160,9 @@ layui.config({
         	var goodsName = data.goodsName;
         	var isEnpty = synAjax("GET", '/v0.1/inport/select/'+goodsName,null, '查询失败!');
         	var isEnpty2 = synAjax("GET", '/v0.1/sell/select/'+goodsName,null, '查询失败!');
-        	if (isEnpty == true || isEnpty2 == true) {
-        		layer.msg("进货单或销售单中货物已存在，禁止删除！");
+        	var isEnpty3 = synAjax("GET", '/v0.1/sellreturn/select/'+goodsName,null, '查询失败!');
+        	if (isEnpty == true || isEnpty2 == true || isEnpty3 == true) {
+        		layer.msg("进货单、销售单或退货单中货物已存在，禁止删除！");
         		return false;
     		}
           layer.confirm('是否删除', function(index){

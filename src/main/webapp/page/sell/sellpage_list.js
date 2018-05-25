@@ -46,6 +46,9 @@ layui.config({
                 ,{field: 'sellNumber', title: '数量'}
                 ,{field: 'goodsUnit', title: '单位'}
                 ,{field: 'sellPrice', title: '销售总价（元）'}
+                ,{field: 'createBy', title: '销售单创建人'}
+                ,{field: 'sellBy', title: '买家姓名'}
+                ,{field: 'phone', title: '买家电话'}
                 ,{field:'doinvoice',title:'操作',toolbar:'#btnBar'}
             ]]
             ,data:res

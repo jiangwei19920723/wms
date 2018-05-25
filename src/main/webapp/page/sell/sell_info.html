@@ -82,7 +82,25 @@
 				<div class="layui-form-item">
 					<label class="layui-form-label">销售总价（元）</label>
 					<div class="layui-input-block">
-						<input type="text" name="sellPrice" required  lay-verify="required" placeholder="请输入销售总价" autocomplete="off" class="layui-input info_input" >
+						<input type="text" name="sellPrice" required  lay-verify="required/number" placeholder="请输入销售总价" autocomplete="off" class="layui-input info_input" >
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">销售单创建人</label>
+					<div class="layui-input-block">
+						<input type="text" name="createBy" required  lay-verify="required" placeholder="请输入销售单创建人" autocomplete="off" class="layui-input info_input" >
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">买家姓名</label>
+					<div class="layui-input-block">
+						<input type="text" name="sellBy" required  lay-verify="required" placeholder="请输入买家姓名" autocomplete="off" class="layui-input info_input" >
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">买家电话</label>
+					<div class="layui-input-block">
+						<input type="text" name="phone" required  lay-verify="required/number" placeholder="请输入买家电话" autocomplete="off" class="layui-input info_input" >
 					</div>
 				</div>
 				<div class="layui-form-item">

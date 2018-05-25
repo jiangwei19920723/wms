@@ -1,7 +1,5 @@
 package cn.jcloud.inport.domain;
 
-import java.util.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -25,6 +23,7 @@ public class Inport extends BizDomain<Long> {
 	private Integer inportNumber;
 	private String goodsUnit;
 	private Double inportPrice;
+	private String createBy;
 	public Long getGoodsId() {
 		return goodsId;
 	}
@@ -61,6 +60,12 @@ public class Inport extends BizDomain<Long> {
 	}
 	public void setInportPrice(Double inportPrice) {
 		this.inportPrice = inportPrice;
+	}
+	public String getCreateBy() {
+		return createBy;
+	}
+	public void setCreateBy(String createBy) {
+		this.createBy = createBy;
 	}
 
 	
