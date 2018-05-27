@@ -4,7 +4,7 @@
 	"href" : "page/main.html",
 	"spread" : false
 },{
-	"title" : "货物",
+	"title" : "货物管理",
 	"icon" : "&#xe630;",
 	"href" : "",
 	"spread" : false,
@@ -23,7 +23,7 @@
 		}
 	]
 },{
-	"title" : "进货",
+	"title" : "进货管理",
 	"icon" : "&#xe630;",
 	"href" : "",
 	"spread" : false,
@@ -42,7 +42,7 @@
 		}
 	]
 },{
-	"title" : "销售",
+	"title" : "销售管理",
 	"icon" : "&#xe630;",
 	"href" : "",
 	"spread" : false,
@@ -61,7 +61,7 @@
 		}
 	]
 },{
-	"title" : "买家退货",
+	"title" : "买家退货管理",
 	"icon" : "&#xe630;",
 	"href" : "",
 	"spread" : false,
