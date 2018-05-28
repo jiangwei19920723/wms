@@ -24,7 +24,7 @@ layui.config({
     }
     /*数据表格初始化*/
     function getDataCallBack() {
-    	var res = synAjax("GET", '/v0.1/sell/list', null, '提交失败!');
+    	var res = synAjax("GET", '/v0.1/sell/list', null, '查询失败!');
     	tab(res);
         return false;
     }

@@ -23,6 +23,7 @@ public class Goods extends BizDomain<Long> {
 	private String goodsUnit;
 	private String goodsFactory;
 	private Integer goodsNumber;
+	private Double goodsPrice;
 	public String getGoodsName() {
 		return goodsName;
 	}
@@ -59,6 +60,10 @@ public class Goods extends BizDomain<Long> {
 	public void setGoodsNumber(Integer goodsNumber) {
 		this.goodsNumber = goodsNumber;
 	}
-	
-	
+	public Double getGoodsPrice() {
+		return goodsPrice;
+	}
+	public void setGoodsPrice(Double goodsPrice) {
+		this.goodsPrice = goodsPrice;
+	}
 }

@@ -24,7 +24,7 @@ layui.config({
     }
     /*数据表格初始化*/
     function getDataCallBack() {
-    	var res = synAjax("GET", '/v0.1/goods/list', null, '提交失败!');
+    	var res = synAjax("GET", '/v0.1/goods/list', null, '查询失败!');
     	tab(res);
         return false;
     }
@@ -46,6 +46,7 @@ layui.config({
                 ,{field: 'goodsUnit', title: '单位'}
                 ,{field: 'goodsType', title: '类型'}
                 ,{field: 'goodsFactory', title: '所属工厂'}
+                ,{field: 'goodsPrice', title: '单价（元）',event: 'setPrice',style:'cursor: pointer;'}
                 ,{field:'doinvoice',title:'操作',toolbar:'#btnBar'}
             ]]
             ,data:res
@@ -156,6 +157,28 @@ layui.config({
      */
     table.on('tool(doEven)', function(obj){
         var data = obj.data;
+        if(obj.event === 'setPrice'){
+            layer.prompt({
+              formType: 2
+              ,title: '修改 货物名称 为 ['+ data.goodsName +'] 的单价（元）'
+              ,value: data.goodsPrice
+            }, function(value, index){
+              layer.close(index);
+              //这里一般是发送修改的Ajax请求
+              data.goodsPrice =value;
+              var res = undefined;
+              res = synAjax("PUT", '/v0.1/goods/updateGoodsPrice', data, '修改失败!');
+              if (res ==undefined ) {
+				return false;
+              }else {
+            	  layer.msg("修改成功！");
+            	  //同步更新表格和缓存对应的值
+            	  obj.update({
+            		  goodsPrice: value
+            	  });				
+              }
+            });
+          }
         if(obj.event === 'del'){
         	var goodsName = data.goodsName;
         	var isEnpty = synAjax("GET", '/v0.1/inport/select/'+goodsName,null, '查询失败!');

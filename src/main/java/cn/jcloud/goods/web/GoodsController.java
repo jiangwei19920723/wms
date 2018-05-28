@@ -1,5 +1,6 @@
 package cn.jcloud.goods.web;
 
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.List;
 
@@ -53,5 +54,9 @@ public class GoodsController {
 	@RequestMapping(value = "delete/{id}", method = RequestMethod.DELETE)
 	public void deleteById(@PathVariable("id")Long id){
 		service.deleteById(id);
+	}
+	@RequestMapping(value = "updateGoodsPrice", method = RequestMethod.PUT)
+	public Goods update(@RequestBody @Valid Goods goods) throws SQLException{
+		return service.update(goods);
 	}
 }
