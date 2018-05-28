@@ -37,6 +37,10 @@ layui.config({
     	table.render({
             elem:'#invoice_datagrid_all'
             ,height:315
+            ,initSort: {
+                field: 'createTime' //排序字段，对应 cols 设定的各字段名
+                    ,type: 'desc' //排序方式  asc: 升序、desc: 降序、null: 默认排序
+             }
             ,page: true //开启分页
             ,cols: [[ //表头
             	{field: 'id', title: '销售单号',width:150}
