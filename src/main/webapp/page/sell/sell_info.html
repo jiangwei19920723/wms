@@ -40,6 +40,9 @@
 		.invoice_info_fieldsete input {
 			width: 50%;
 		}
+		.layui-input div {
+			white-space:nowrap;
+		}
 	</style>
 </head>
 <body class="">
@@ -47,42 +50,15 @@
 		<legend>添加销售单</legend>
 		<div class="layui-field-box">
 			<form class="layui-form" id="invoice_info_form" >
-				<!-- <div class="layui-form-item">
-					<label class="layui-form-label">货物名称</label>
-					<div class="layui-input-block">
-						<input type="text" name="goodsName" required  lay-verify="required" placeholder="请输入货物名称" autocomplete="off" class="layui-input info_input">
-					</div>
-				</div> -->
-				<div class="layui-form-item">
-				    <label class="layui-form-label">货物名称</label>
-				    <div class="layui-input-block">
-				      <select name="goodsName" lay-verify="required" id="goodsName" lay-filter="goodsName">
-				        <option value=""></option>
-				      </select>
+				<div class="layui-form-item" id ='good'>
+				    <div class="layui-input-block" style="width: 20%">
+				    	<button type="button" data-method="offset" data-type="auto" class="layui-btn layui-btn-danger" id="goods">选择货物</button>
 				    </div>
-				  </div>
-				<div class="layui-form-item">
-					<label class="layui-form-label">货物编码</label>
-					<div class="layui-input-block">
-						<input type="text" name="goodsCode" id="goodsCode" required  lay-verify="required" placeholder="请输入货物编码" autocomplete="off" class="layui-input info_input" disabled="disabled">
-					</div>
-				</div>
-				<div class="layui-form-item">
-					<label class="layui-form-label">单位</label>
-					<div class="layui-input-block">
-						<input type="text" name="goodsUnit" id="goodsUnit" required  lay-verify="required" placeholder="请输入单位" autocomplete="off" class="layui-input info_input" disabled="disabled">
-					</div>
-				</div>
-				<div class="layui-form-item">
-					<label class="layui-form-label">数量</label>
-					<div class="layui-input-block">
-						<input type="text" name="sellNumber" required  lay-verify="required" placeholder="请输入数量" autocomplete="off" class="layui-input info_input" >
-					</div>
 				</div>
 				<div class="layui-form-item">
 					<label class="layui-form-label">销售总价（元）</label>
 					<div class="layui-input-block">
-						<input type="text" name="sellPrice" required  lay-verify="required/number" placeholder="请输入销售总价" autocomplete="off" class="layui-input info_input" >
+						<input type="text" id="sellPrice" name="sellPrice" required  lay-verify="required/number" placeholder="请输入销售总价" autocomplete="off" class="layui-input info_input">
 					</div>
 				</div>
 				<div class="layui-form-item">

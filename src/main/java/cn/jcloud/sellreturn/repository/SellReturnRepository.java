@@ -18,6 +18,7 @@ import cn.jcloud.sellreturn.domain.SellReturn;
 @Repository
 public interface SellReturnRepository extends BizRepository<SellReturn, Long> {
 	List<SellReturn> findAll();
+	List<SellReturn> findBySellReturnByLike(String sellReturnBy);
 	List<SellReturn> findByCreateTimeBetween(Date startTime,Date endTime);
 	List<SellReturn> findByGoodsCodeLike(String goodsCode);
 	List<SellReturn> findByGoodsNameLike(String goodsName);

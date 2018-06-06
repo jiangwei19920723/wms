@@ -12,7 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import cn.jcloud.common.bean.SellVo;
 import cn.jcloud.sell.domain.Sell;
+import cn.jcloud.sell.domain.SellRise;
+import cn.jcloud.sell.service.SellRiseService;
 import cn.jcloud.sell.service.SellService;
 
 /**
@@ -25,13 +28,19 @@ import cn.jcloud.sell.service.SellService;
 public class SellController {
 	@Autowired
 	private SellService service;
+	@Autowired
+	private SellRiseService riseService;
 	@RequestMapping(value = "insert", method = RequestMethod.POST)
-	public void insert(@RequestBody @Valid Sell sell){
-		sell = service.save(sell);
+	public void insert(@RequestBody @Valid SellVo sell){
+		riseService.save(sell);
 	}
 	@RequestMapping(value = "list", method = RequestMethod.GET)
-	public List<Sell> list(){
-		return service.getAll();
+	public List<SellRise> listRise(){
+		return riseService.getAll();
+	}
+	@RequestMapping(value = "list/{id}", method = RequestMethod.GET)
+	public List<Sell> list(@PathVariable("id") Long id){
+		return service.getBySellRiseId(id);
 	}
 	@RequestMapping(value = "select/group", method = RequestMethod.GET)
 	public String[] selectGroupByGoodsName(String goodsName,String time){
@@ -51,15 +60,15 @@ public class SellController {
 		}
 	}
 	@RequestMapping(value = "select", method = RequestMethod.GET)
-	public List<Sell> listCondition(String startTime, String endTime, String goodsCode, String goodsName){
+	public List<SellRise> listCondition(String startTime, String endTime, String sellBy){
 		try {
-			return service.getSelect(startTime, endTime, goodsCode, goodsName);
+			return riseService.getSelect(startTime, endTime, sellBy);
 		} catch (ParseException e) {
 			return null;
 		}
 	}
 	@RequestMapping(value = "delete/{id}", method = RequestMethod.DELETE)
 	public void deleteById(@PathVariable("id")Long id){
-		service.deleteById(id);
+		riseService.deleteById(id);
 	}
 }

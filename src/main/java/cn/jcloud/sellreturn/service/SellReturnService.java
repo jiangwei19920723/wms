@@ -29,7 +29,7 @@ public class SellReturnService extends BizService<SellReturn, Long> {
 	public List<SellReturn> getAll(){
 		return repository.findAll();
 	}
-	public List<SellReturn> getSelect(String startTime, String endTime, String goodsCode, String goodsName) throws ParseException{
+	public List<SellReturn> getSelect(String startTime, String endTime, String goodsCode, String goodsName,String sellReturnBy) throws ParseException{
 		if (startTime !=null && endTime !=null) {
 			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 			return repository.findByCreateTimeBetween(format.parse(startTime+" 00:00:00"), format.parse(endTime+" 23:59:59"));
@@ -37,6 +37,8 @@ public class SellReturnService extends BizService<SellReturn, Long> {
 			return repository.findByGoodsCodeLike("%"+goodsCode+"%");
 		}else if (goodsName !=null) {
 			return repository.findByGoodsNameLike("%"+goodsName+"%");
+		}else if (sellReturnBy !=null) {
+			return repository.findBySellReturnByLike("%"+sellReturnBy+"%");
 		}else {
 			return repository.findAll();
 		}

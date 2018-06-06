@@ -47,8 +47,7 @@
            	<div class="layui-col-xs1 over_time_12" style="padding:0.5px;">
                    <select name="city"  style="width:100px;height: 36px" id="select">
 			      <option value="0" selected="selected">创建时间</option>
-			      <option value="1">货物编码</option>
-			      <option value="2">货物名称</option>
+			      <option value="1">买家姓名</option>
 			    </select>
 			</div>
 			<div class="layui-col-xs6 over_time_2">
@@ -89,7 +88,11 @@
 	</fieldset>
 	<script type="text/javascript" src="/page/sell/sellpage_list.js"></script>
 <script id="btnBar" type="text/html">
+		<a class="layui-btn layui-btn-xs" lay-event="sel">查看货物详情</a>
 		<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>
+<script id="btnBar1" type="text/html">
+		<a class="layui-btn layui-btn-xs" lay-event="print">销售单</a>
 </script>
 </body>
 </html>

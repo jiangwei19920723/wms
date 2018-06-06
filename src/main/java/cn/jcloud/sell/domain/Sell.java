@@ -17,20 +17,20 @@ import cn.jcloud.domain.BizDomain;
 @Table(name="wms_sell")
 @GenericGenerator(name = "id", strategy = IDG.DISTRIBUTED_IDENTITY)
 public class Sell extends BizDomain<Long> {
-	private Long goodsId;
+	private Long sellRiseId;
 	private String goodsCode;
 	private String goodsName;
+	private String goodsType;
 	private Integer sellNumber;
 	private String goodsUnit;
-	private Double sellPrice;
-	private String createBy;
-	private String sellBy;
-	private String phone;
-	public Long getGoodsId() {
-		return goodsId;
+	private String goodsFactory;
+	private Double goodsPrice;
+
+	public Long getSellRiseId() {
+		return sellRiseId;
 	}
-	public void setGoodsId(Long goodsId) {
-		this.goodsId = goodsId;
+	public void setSellRiseId(Long sellRiseId) {
+		this.sellRiseId = sellRiseId;
 	}
 	public String getGoodsCode() {
 		return goodsCode;
@@ -56,30 +56,23 @@ public class Sell extends BizDomain<Long> {
 	public void setGoodsUnit(String goodsUnit) {
 		this.goodsUnit = goodsUnit;
 	}
-	public Double getSellPrice() {
-		return sellPrice;
+	public Double getGoodsPrice() {
+		return goodsPrice;
 	}
-	public void setSellPrice(Double sellPrice) {
-		this.sellPrice = sellPrice;
+	public void setGoodsPrice(Double goodsPrice) {
+		this.goodsPrice = goodsPrice;
 	}
-	public String getCreateBy() {
-		return createBy;
+	public String getGoodsType() {
+		return goodsType;
 	}
-	public void setCreateBy(String createBy) {
-		this.createBy = createBy;
+	public void setGoodsType(String goodsType) {
+		this.goodsType = goodsType;
 	}
-	public String getSellBy() {
-		return sellBy;
+	public String getGoodsFactory() {
+		return goodsFactory;
 	}
-	public void setSellBy(String sellBy) {
-		this.sellBy = sellBy;
+	public void setGoodsFactory(String goodsFactory) {
+		this.goodsFactory = goodsFactory;
 	}
-	public String getPhone() {
-		return phone;
-	}
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-	
 	
 }

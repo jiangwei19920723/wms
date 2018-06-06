@@ -123,7 +123,9 @@ layui.config({
 			$(".over_time_2").before('<div class="layui-col-xs6 over_time_1"><div class="grid-demo grid-demo-bg1"><div class="layui-inline"><input type="text" class="layui-input"style="width:332px;" id ="code"></div></div></div></div>');
 		}else if (value == 2) {
 			$(".over_time_2").before('<div class="layui-col-xs6 over_time_1"><div class="grid-demo grid-demo-bg1"><div class="layui-inline"><input type="text" class="layui-input"style="width:332px;" id ="name"></div></div></div></div>');			
-		}
+		}else if (value == 3) {
+    	$(".over_time_2").before('<div class="layui-col-xs6 over_time_1"><div class="grid-demo grid-demo-bg1"><div class="layui-inline"><input type="text" class="layui-input"style="width:332px;" id ="sellReturnBy"></div></div></div></div>');			
+    }
     });
     /**
      * 条件查询结果
@@ -143,7 +145,11 @@ layui.config({
 			var name = $("#name").val();
 			var res = synAjaxJson("GET", '/v0.1/sellreturn/select', 'goodsName='+name, "查询失败！");
 			tab(res);
-		}
+		}else if (value == 3) {
+    	var sellReturnBy = $("#sellReturnBy").val();
+    	var res = synAjaxJson("GET", '/v0.1/sellreturn/select', 'sellReturnBy='+sellReturnBy, "查询失败！");
+    	tab(res);
+    }
     });
     /**
      * 删除进货表

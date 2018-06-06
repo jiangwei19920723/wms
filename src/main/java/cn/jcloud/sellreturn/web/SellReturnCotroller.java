@@ -51,9 +51,9 @@ public class SellReturnCotroller {
 		}
 	}
 	@RequestMapping(value = "select", method = RequestMethod.GET)
-	public List<SellReturn> listCondition(String startTime, String endTime, String goodsCode, String goodsName){
+	public List<SellReturn> listCondition(String startTime, String endTime, String goodsCode, String goodsName,String sellReturnBy){
 		try {
-			return service.getSelect(startTime, endTime, goodsCode, goodsName);
+			return service.getSelect(startTime, endTime, goodsCode, goodsName,sellReturnBy);
 		} catch (ParseException e) {
 			return null;
 		}

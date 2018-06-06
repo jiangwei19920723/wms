@@ -29,6 +29,9 @@ public class SellService extends BizService<Sell, Long> {
 	public List<Sell> getAll(){
 		return repository.findAll();
 	}
+	public List<Sell> getBySellRiseId(Long id){
+		return repository.findBySellRiseId(id);
+	}
 	public List<Sell> getSelect(String startTime, String endTime, String goodsCode, String goodsName) throws ParseException{
 		if (startTime !=null && endTime !=null) {
 			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");

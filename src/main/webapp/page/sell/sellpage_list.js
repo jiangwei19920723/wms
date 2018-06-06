@@ -44,16 +44,13 @@ layui.config({
             ,page: true //开启分页
             ,cols: [[ //表头
             	{field: 'id', title: '销售单号',width:150}
-                ,{field: 'goodsName', title: '货物名称'}
-                ,{field: 'goodsCode', title: '货物编号'}
                 ,{field: 'createTime', title: '创建时间',width:140,sort: true,templet:'<div>{{ layui.laytpl.toDateString(d.createTime,"yyyy-MM-dd")}}</div>'}
-                ,{field: 'sellNumber', title: '数量'}
-                ,{field: 'goodsUnit', title: '单位'}
                 ,{field: 'sellPrice', title: '销售总价（元）',width:140}
                 ,{field: 'createBy', title: '销售单创建人'}
                 ,{field: 'sellBy', title: '买家姓名'}
                 ,{field: 'phone', title: '买家电话',width:140}
-                ,{field:'doinvoice',title:'操作',toolbar:'#btnBar'}
+                ,{field:'doinvoice1',title:'打印',toolbar:'#btnBar1'}
+                ,{field:'doinvoice',title:'操作',toolbar:'#btnBar',width:200}
             ]]
             ,data:res
          });
@@ -120,9 +117,7 @@ layui.config({
 		        elem:'#end_time'
 		    })
 		}else if (value == 1) {
-			$(".over_time_2").before('<div class="layui-col-xs6 over_time_1"><div class="grid-demo grid-demo-bg1"><div class="layui-inline"><input type="text" class="layui-input"style="width:332px;" id ="code"></div></div></div></div>');
-		}else if (value == 2) {
-			$(".over_time_2").before('<div class="layui-col-xs6 over_time_1"><div class="grid-demo grid-demo-bg1"><div class="layui-inline"><input type="text" class="layui-input"style="width:332px;" id ="name"></div></div></div></div>');			
+			$(".over_time_2").before('<div class="layui-col-xs6 over_time_1"><div class="grid-demo grid-demo-bg1"><div class="layui-inline"><input type="text" class="layui-input"style="width:332px;" id ="sellBy"></div></div></div></div>');
 		}
     });
     /**
@@ -136,12 +131,8 @@ layui.config({
 			var res = synAjaxJson("GET", '/v0.1/sell/select', 'startTime='+start_time+'&endTime='+end_time, "查询失败！");
 			tab(res);
 		}else if (value == 1) {
-			var code = $("#code").val();
-			var res = synAjaxJson("GET", '/v0.1/sell/select', 'goodsCode='+code, "查询失败！");
-			tab(res);
-		}else if (value == 2) {
-			var name = $("#name").val();
-			var res = synAjaxJson("GET", '/v0.1/sell/select', 'goodsName='+name, "查询失败！");
+			var sellBy = $("#sellBy").val();
+			var res = synAjaxJson("GET", '/v0.1/sell/select', 'sellBy='+sellBy, "查询失败！");
 			tab(res);
 		}
     });
@@ -150,12 +141,33 @@ layui.config({
      */
     table.on('tool(doEven)', function(obj){
         var data = obj.data;
-        if(obj.event === 'del'){
+        if(obj.event == 'del'){
           layer.confirm('是否删除', function(index){
         	  synAjaxJson("DELETE", '/v0.1/sell/delete/'+data.id, null, "删除失败！");
               obj.del();
               layer.close(index);
           });
         }
+        if(obj.event == 'sel'){
+        	layer.open({
+                type: 2
+                ,offset: 'auto' //具体配置参考：http://www.layui.com/doc/modules/layer.html#offset
+                ,id: 'goods' //防止重复弹出
+                ,content: 'page/sell/goods_vo_list.html'
+                ,btn: '确认'
+                ,btnAlign: 'c' //按钮居中
+                ,shade: 0 //不显示遮罩
+                ,area: ['80%', '90%']
+                ,yes: function(index,layero){
+                	layer.closeAll();
+                }
+        		,success: function (layero, index) {  
+        		$(layero).find('iframe')[0].contentWindow.getId(data.id);
+            } 
+              });
+          }
+        if (obj.event == 'print') {
+        	window.open("print.html?id="+data.id, "_blank", "scrollbars=yes,resizable=1,modal=false,alwaysRaised=yes");
+		}
       });
 })
