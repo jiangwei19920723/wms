@@ -24,6 +24,7 @@ public class Inport extends BizDomain<Long> {
 	private String goodsUnit;
 	private Double inportPrice;
 	private String createBy;
+	private String remark;
 	public Long getGoodsId() {
 		return goodsId;
 	}
@@ -67,6 +68,12 @@ public class Inport extends BizDomain<Long> {
 	public void setCreateBy(String createBy) {
 		this.createBy = createBy;
 	}
-
+	public String getRemark() {
+		return remark;
+	}
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
+	
 	
 }

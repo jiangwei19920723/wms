@@ -53,6 +53,7 @@ layui.config({
                 ,{field: 'createBy', title: '退货单创建人'}
                 ,{field: 'sellReturnBy', title: '买家姓名'}
                 ,{field: 'phone', title: '买家电话',width:140}
+                ,{field: 'remark', title: '备注'}
                 ,{field:'doinvoice',title:'操作',toolbar:'#btnBar'}
             ]]
             ,data:res

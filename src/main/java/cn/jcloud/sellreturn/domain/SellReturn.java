@@ -26,6 +26,7 @@ public class SellReturn extends BizDomain<Long> {
 	private String createBy;
 	private String sellReturnBy;
 	private String phone;
+	private String remark;
 	public Long getGoodsId() {
 		return goodsId;
 	}
@@ -79,6 +80,12 @@ public class SellReturn extends BizDomain<Long> {
 	}
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+	public String getRemark() {
+		return remark;
+	}
+	public void setRemark(String remark) {
+		this.remark = remark;
 	}
 	
 }

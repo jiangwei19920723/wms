@@ -49,6 +49,7 @@ layui.config({
                 ,{field: 'createBy', title: '销售单创建人'}
                 ,{field: 'sellBy', title: '买家姓名'}
                 ,{field: 'phone', title: '买家电话',width:140}
+                ,{field: 'remark', title: '备注'}
                 ,{field:'doinvoice1',title:'打印',toolbar:'#btnBar1'}
                 ,{field:'doinvoice',title:'操作',toolbar:'#btnBar',width:200}
             ]]

@@ -51,6 +51,7 @@ layui.config({
                 ,{field: 'goodsUnit', title: '单位'}
                 ,{field: 'inportPrice', title: '进货总价（元）',width:140}
                 ,{field: 'createBy', title: '进货单创建人'}
+                ,{field: 'remark', title: '备注'}
                 ,{field:'doinvoice',title:'操作',toolbar:'#btnBar'}
             ]]
             ,data:res
