@@ -32,7 +32,7 @@ Date.prototype.format = function(fmt) {
 <style type="text/css">
 table
   {
-  width:90%;
+  width:100%;
   }
 
 th
@@ -45,6 +45,9 @@ th
 	}
 	td{
 		text-align:center;
+	}
+	.d1{
+		text-align:left;
 	}
 </style>
 </head>
@@ -69,38 +72,45 @@ th
 				'		<td>'+goods[j].goodsCode+'</td>              '   +
 				'		<td>'+goods[j].goodsUnit+'</td>                    '   +
 				'		<td>'+goods[j].sellNumber+'</td>                   '   +
-				'		<td colspan="2">'+goods[j].goodsPrice+'</td>      '   +
+				'		<td>'+goods[j].goodsPrice+'</td>      '   +
+				'		<td>'+parseFloat(goods[j].goodsPrice)*parseFloat(goods[j].sellNumber)+'</td>      '   +
 				'	</tr>';
 				}
-			$("#d").append($('<!--startprint--><table align="center" id ="tab">                '   +
-			'	<tr><th colspan="6">永顺衡器</th></tr>'+
+			$("#d").append($('<br><!--startprint--><table align="center" id ="tab">                '   +
+			'	<tr><th colspan="6">永   顺   衡   器</th></tr>'+
 			'	<tr>                               '   +
 			'		<th>销售单号</th>              '   +
 			'		<th>销售时间</th>              '   +
-			'		<th>客户姓名</th>              '   +
-			'		<th>客户电话</th>              '   +
-			'		<th>卖家电话</th>              '   +
-			'		<th>联系人</th>                '   +
+			'		<th colspan="2">客户姓名</th>              '   +
+			'		<th colspan="2">客户电话</th>              '   +
 			'	</tr>                              '   +
 			'	<tr>                               '   +
 			'		<td>'+res[i].id+'</td>                   '   +
 			'		<td>'+time+'</td>            '   +
-			'		<td>'+res[i].sellBy+'</td>                '   +
-			'		<td>'+res[i].phone+'</td>             '   +
-			'		<td>13983481511</td>            '   +
-			'		<td>蒋立友</td>                '   +
+			'		<td colspan="2">'+res[i].sellBy+'</td>                '   +
+			'		<td colspan="2">'+res[i].phone+'</td>             '   +
 			'	</tr>                              '   +
 			'	<tr>                               '   +
 			'		<th>货物名称</th>              '   +
 			'		<th>货物编号</th>              '   +
 			'		<th>单位</th>                  '   +
 			'		<th>销售数量</th>              '   +
-			'		<th colspan="2">销售价格（元）</th>'+
+			'		<th>销售单价（元）</th>'+
+			'		<th>销售总价（元）</th>'+
 			'	</tr>                              '   +
 			str+
 			'	<tr>                               '   +
 			'		<td colspan="4">总价（元）</td>'   +
 			'		<td colspan="2">'+res[i].sellPrice+'</td>    '   +
+			'	</tr>                              '   +
+			'	<tr>                               '   +
+			'		<td class="d1" colspan="6">经营项目:批发电子秤 苏州楚江红、金枪鱼衡器 五鑫衡器香杉 济南正强衡器 各种大小地磅 汽车衡 电子吊钩秤 专业维修各种电子秤</td>'   +
+			'	</tr>                              '   +
+			'	<tr>                               '   +
+			'		<td class="d1" colspan="6">地址:重庆市大足区龙水永益路120号</td>'   +
+			'	</tr>                              '   +
+			'	<tr>                               '   +
+			'		<td class="d1" colspan="6">联系人:周 强 133 0826 9285  蒋 友 139 8348 1511 农业卡号:6228 4804 7106 8257 610 蒋立友  信合卡号:6228 8510 4599 7201 周光强</td>'   +
 			'	</tr>                              '   +
 			'</table>       <!--endprint-->                       '));
 		}

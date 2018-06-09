@@ -1,5 +1,6 @@
 package cn.jcloud.sell.web;
 
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.List;
 
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import cn.jcloud.common.bean.SellVo;
+import cn.jcloud.goods.domain.Goods;
 import cn.jcloud.sell.domain.Sell;
 import cn.jcloud.sell.domain.SellRise;
 import cn.jcloud.sell.service.SellRiseService;
@@ -46,6 +48,14 @@ public class SellController {
 	public String[] selectGroupByGoodsName(String goodsName,String time){
 		return service.getGroupByGoodsName(goodsName,time);
 	}
+	@RequestMapping(value = "select/group1", method = RequestMethod.GET)
+	public List<SellRise> selectGroupByTime(String time){
+		return riseService.getGroupByTime(time);
+	}
+	@RequestMapping(value = "selectByArrears", method = RequestMethod.GET)
+	public List<SellRise> selectByArrears(String time){
+		return riseService.getByArrears();
+	}
 	@RequestMapping(value = "select/month", method = RequestMethod.GET)
 	public Double selectpByMonth(String time){
 		return service.getByMonth(time);
@@ -70,5 +80,9 @@ public class SellController {
 	@RequestMapping(value = "delete/{id}", method = RequestMethod.DELETE)
 	public void deleteById(@PathVariable("id")Long id){
 		riseService.deleteById(id);
+	}
+	@RequestMapping(value = "updateSellArrears", method = RequestMethod.PUT)
+	public SellRise update(@RequestBody @Valid SellRise sell) throws SQLException{
+		return riseService.update(sell);
 	}
 }

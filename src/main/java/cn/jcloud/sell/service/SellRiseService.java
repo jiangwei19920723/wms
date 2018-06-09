@@ -2,6 +2,8 @@ package cn.jcloud.sell.service;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,6 +51,7 @@ public class SellRiseService  extends BizService<SellRise, Long>  {
 		rise.setPhone(sell.getPhone());
 		rise.setSellPrice(sell.getSellPrice());
 		rise.setRemark(sell.getRemark());
+		rise.setArrears(sell.getArrears());
 		rise = repository.save(rise);
 		for (String good : sell.getGoods()) {
 			String[] strs = good.split(",");
@@ -80,5 +83,21 @@ public class SellRiseService  extends BizService<SellRise, Long>  {
 			sellRepository.delete(sell);
 		}
 		repository.delete(sellRise);
+	}
+	public List<SellRise> getGroupByTime(String time){
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		Date date=null;
+		try {
+			date = sdf.parse(time+"-01 00:00:00");
+		} catch (ParseException e) {
+			return null;
+		}
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(date);
+		calendar.add(calendar.MONTH, 1);
+		return repository.findByCreateTimeBetweenAndArrearsNot(date,calendar.getTime(), 0d);
+	}
+	public List<SellRise> getByArrears(){
+		return repository.findByArrearsNot(0d);
 	}
 }

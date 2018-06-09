@@ -18,4 +18,6 @@ public interface SellRiseRepository  extends BizRepository<SellRise, Long> {
 	List<SellRise> findByCreateTimeBetween(Date startTime,Date endTime);
 	List<SellRise> findBySellByLike(String sellBy);
 	List<SellRise> findAll();
+	List<SellRise> findByCreateTimeBetweenAndArrearsNot(Date startTime,Date endTime,Double arrears);
+	List<SellRise> findByArrearsNot(Double arrears);
 }

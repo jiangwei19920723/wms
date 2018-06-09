@@ -22,6 +22,7 @@ public class SellRise extends BizDomain<Long> {
 	private String phone;
 	private Double sellPrice;
 	private String remark;
+	private Double arrears;
 	public String getCreateBy() {
 		return createBy;
 	}
@@ -53,6 +54,11 @@ public class SellRise extends BizDomain<Long> {
 	public void setRemark(String remark) {
 		this.remark = remark;
 	}
-	
+	public Double getArrears() {
+		return arrears;
+	}
+	public void setArrears(Double arrears) {
+		this.arrears = arrears;
+	}
 
 }

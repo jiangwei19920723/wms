@@ -23,7 +23,7 @@ public interface SellRepository extends BizRepository<Sell, Long> {
 	List<Sell> findByGoodsCodeLike(String goodsCode);
 	List<Sell> findByGoodsNameLike(String goodsName);
 	List<Sell> findByGoodsName(String goodsName);
-	@Query(value = "select SUM(sell_number),SUM(goods_price) from wms_sell where create_time>=:startTime and create_time<:endTime and goods_name=:goodsName group by goods_name", nativeQuery = true)
+	@Query(value = "select SUM(sell_number),SUM(goods_price*sell_number) from wms_sell where create_time>=:startTime and create_time<:endTime and goods_name=:goodsName group by goods_name", nativeQuery = true)
 	String[] findGroupByGoodsName(@Param("startTime") Date startDate,@Param("endTime") Date endDate,@Param("goodsName") String goodsName);
 	@Query(value = "select SUM(goods_price) from wms_sell where create_time>=:startTime and create_time<:endTime", nativeQuery = true)
 	Double findByMonth(@Param("startTime") Date startDate,@Param("endTime") Date endDate);

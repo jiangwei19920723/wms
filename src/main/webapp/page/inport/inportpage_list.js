@@ -36,7 +36,7 @@ layui.config({
     function tab(res){
     	table.render({
             elem:'#invoice_datagrid_all'
-            ,height:315
+            ,height:600
             ,initSort: {
                 field: 'createTime' //排序字段，对应 cols 设定的各字段名
                     ,type: 'desc' //排序方式  asc: 升序、desc: 降序、null: 默认排序
@@ -44,7 +44,7 @@ layui.config({
             ,page: true //开启分页
             ,cols: [[ //表头
             	{field: 'id', title: '进货单号',width:150}
-                ,{field: 'goodsName', title: '货物名称'}
+                ,{field: 'goodsName', title: '货物名称',width:300}
                 ,{field: 'goodsCode', title: '货物编号'}
                 ,{field: 'createTime', title: '创建时间',sort: true,templet:'<div>{{ layui.laytpl.toDateString(d.createTime,"yyyy-MM-dd")}}</div>'}
                 ,{field: 'inportNumber', title: '数量'}

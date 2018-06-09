@@ -14,6 +14,7 @@ public class SellVo {
 	private String sellBy;
 	private String remark;
 	private Double sellPrice;
+	private Double arrears;
 	private List<String> goods;
 	public String getCreateBy() {
 		return createBy;
@@ -50,6 +51,12 @@ public class SellVo {
 	}
 	public void setRemark(String remark) {
 		this.remark = remark;
+	}
+	public Double getArrears() {
+		return arrears;
+	}
+	public void setArrears(Double arrears) {
+		this.arrears = arrears;
 	}
 	
 }

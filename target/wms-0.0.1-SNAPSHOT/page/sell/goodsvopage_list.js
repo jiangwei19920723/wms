@@ -17,16 +17,16 @@ layui.config({
     function tab(res){
     	table.render({
             elem:'#invoice_datagrid_all'
-            ,height:315
+            ,height:600
             ,page: true //开启分页
             ,cols: [[ //表头
-                {field: 'goodsName', title: '货物名称'}
+                {field: 'goodsName', title: '货物名称',width:300}
                 ,{field: 'goodsCode', title: '货物编号'}
                 ,{field: 'goodsUnit', title: '单位'}
                 ,{field: 'goodsType', title: '类型'}
                 ,{field: 'goodsFactory', title: '所属工厂'}
                 ,{field: 'sellNumber', title: '销售数量'}
-                ,{field: 'goodsPrice', title: '销售价格（元）'}
+                ,{field: 'goodsPrice', title: '销售单价（元）'}
             ]]
             ,data:res
          });

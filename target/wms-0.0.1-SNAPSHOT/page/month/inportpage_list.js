@@ -96,7 +96,8 @@ layui.config({
     function tab(res){
     	table.render({
             elem:'#invoice_datagrid_all'
-            ,height:315
+            ,height:600
+            ,page: true //开启分页
             ,cols: [[ //表头
                 {field: 'goodsName', title: '货物名称'}
                 ,{field: 'goodsCode', title: '货物编号'}
