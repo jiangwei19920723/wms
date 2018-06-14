@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import cn.jcloud.common.bean.InportSettlement;
 import cn.jcloud.common.bean.SellVo;
-import cn.jcloud.goods.domain.Goods;
 import cn.jcloud.sell.domain.Sell;
 import cn.jcloud.sell.domain.SellRise;
 import cn.jcloud.sell.service.SellRiseService;
@@ -45,8 +45,8 @@ public class SellController {
 		return service.getBySellRiseId(id);
 	}
 	@RequestMapping(value = "select/group", method = RequestMethod.GET)
-	public String[] selectGroupByGoodsName(String goodsName,String time){
-		return service.getGroupByGoodsName(goodsName,time);
+	public List<InportSettlement> selectGroup(String time){
+		return service.getGroup(time);
 	}
 	@RequestMapping(value = "select/group1", method = RequestMethod.GET)
 	public List<SellRise> selectGroupByTime(String time){

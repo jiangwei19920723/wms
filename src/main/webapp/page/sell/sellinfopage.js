@@ -52,10 +52,10 @@ layui.config({
             	for (var i = 0; i < res.length; i++) {
             		$('#good').after(
             		'<div class="layui-form-item" id="good'+i+'">                                                                                           '+
-            		'  <div class="layui-inline">                                                                                                      '+
+            		'  <div class="layui-inline">                                                                                                       '+
             		'    <label class="layui-form-label">货物名称</label>                                                                              '+
-            		'    <div class="layui-input-inline">                                                                                              '+
-            		'      <input lay-verType="msg" type="text" id="goodsName'+i+'" required lay-verify="required" autocomplete="off" class="layui-input info_input" disabled="disabled" value="'+res[i].goodsName+'"> '+
+            		'    <div class="layui-input-inline" style="width: 300px;">                                                                                              '+
+            		'      <input style="width: 300px;" lay-verType="msg" type="text" id="goodsName'+i+'" required lay-verify="required" autocomplete="off" class="layui-input info_input" disabled="disabled" value="'+res[i].goodsName+'"> '+
             		'    </div>                                                                                                                        '+
             		'  </div>                                                                                                                          '+
             		'  <div class="layui-inline">                                                                                                      '+

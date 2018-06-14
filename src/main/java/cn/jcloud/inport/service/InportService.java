@@ -2,19 +2,19 @@ package cn.jcloud.inport.service;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import cn.jcloud.common.bean.InportSettlement;
 import cn.jcloud.goods.domain.Goods;
 import cn.jcloud.goods.repository.GoodsRepository;
 import cn.jcloud.inport.domain.Inport;
 import cn.jcloud.inport.repository.InportRepository;
-import cn.jcloud.sell.domain.Sell;
 import cn.jcloud.service.BizService;
 
 /**
@@ -64,7 +64,7 @@ public class InportService extends BizService<Inport, Long> {
 		goodsRepository.save(goods);
 		return super.save(t);
 	}
-	public String[] getGroupByGoodsName(String goodsName,String time){
+	public List<InportSettlement> getGroup(String time){
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 		Date date=null;
 		try {
@@ -75,7 +75,35 @@ public class InportService extends BizService<Inport, Long> {
 		Calendar calendar = Calendar.getInstance();
 		calendar.setTime(date);
 		calendar.add(calendar.MONTH, 1);
-		return repository.findGroupByGoodsName(date,calendar.getTime(),goodsName);
+		List<Inport> inports = repository.findByCreateTimeBetween(date,calendar.getTime());
+		List<Goods> goodss = goodsRepository.findAll();
+		List<InportSettlement> inportSettlements = new ArrayList<>();
+		for (Goods goods : goodss) {
+			InportSettlement settlement = new InportSettlement();
+			settlement.setGoodsCode(goods.getGoodsCode());
+			settlement.setGoodsName(goods.getGoodsName());
+			settlement.setGoodsUnit(goods.getGoodsUnit());
+			settlement.setInportNumber(0);
+			settlement.setInportPrice(0d);
+			for (Inport inport : inports) {
+				if (!inport.getGoodsName().equals(goods.getGoodsName())) {
+					continue;
+				}
+				settlement.setInportNumber(settlement.getInportNumber()+inport.getInportNumber());
+				settlement.setInportPrice(settlement.getInportPrice()+inport.getInportPrice());
+			}
+			if (settlement.getInportNumber() != 0) {
+				inportSettlements.add(settlement);				
+			}
+		}
+		Double number = repository.findByMonth(date,calendar.getTime());
+		if (number != null) {
+			InportSettlement settlement = new InportSettlement();
+			settlement.setGoodsUnit("总计：");
+			settlement.setInportPrice(number);
+			inportSettlements.add(settlement);
+		}
+		return inportSettlements;
 	}
 	public Double getByMonth(String time){
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");

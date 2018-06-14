@@ -18,40 +18,13 @@ layui.config({
      * 条件查询结果
      */
     $(".btn").click(function(){
-    	var goods = synAjax("GET", '/v0.1/goods/list', null, '查询失败!');
     	var time = $("#time").val();
-    	var arr = new Array(goods.length+1);
-    	var number =0;
-    	for (var i = 0; i < goods.length; i++) {
-    		var obj = new Object();
-			var inport = synAjax("GET", '/v0.1/sellreturn/select/group?goodsName='+goods[i].goodsName+'&time='+time, null, '查询失败!');
-			var numbers=undefined;
-			if (inport.length !=0) {
-				var numbers = inport[0].split(",");				
-			}
-			obj.goodsName = goods[i].goodsName;
-			obj.goodsCode = goods[i].goodsCode;
-			obj.goodsUnit = goods[i].goodsUnit;
-			if (numbers == undefined) {
-				obj.inportNumber = "0";
-				obj.inportPrice = "0";										
-			}else {
-				number+=parseFloat(numbers[1]);
-				obj.inportNumber = numbers[0];
-				obj.inportPrice = numbers[1];					
-			}
-			arr[i]=obj;
-		}
-    	var obj = new Object();
-    	obj.goodsUnit="总计：";
-    	obj.inportPrice =number;
-    	arr[goods.length] = obj;
-    	tab(arr);
+		var inport = synAjax("GET", '/v0.1/sellreturn/select/group?time='+time, null, '查询失败!');
+    	tab(inport);
         return false;
     });
     /*数据表格初始化*/
     function getDataCallBack() {
-    	var goods = synAjax("GET", '/v0.1/goods/list', null, '查询失败!');
     	var d = new Date();
     	var vYear = d.getFullYear();
     	var vMon = d.getMonth() + 1;
@@ -59,33 +32,8 @@ layui.config({
 			vMon="0"+vMon;
 		}
     	var time = vYear+'-'+vMon
-    	var arr = new Array(goods.length+1);
-    	var number =0;
-    	for (var i = 0; i < goods.length; i++) {
-    		var obj = new Object();
-			var inport = synAjax("GET", '/v0.1/sellreturn/select/group?goodsName='+goods[i].goodsName+'&time='+time, null, '查询失败!');
-			var numbers=undefined;
-			if (inport.length !=0) {
-				var numbers = inport[0].split(",");				
-			}
-			obj.goodsName = goods[i].goodsName;
-			obj.goodsCode = goods[i].goodsCode;
-			obj.goodsUnit = goods[i].goodsUnit;
-			if (numbers == undefined) {
-				obj.inportNumber = "0";
-				obj.inportPrice = "0";									
-			}else {
-				number+=parseFloat(numbers[1]);
-				obj.inportNumber = numbers[0];
-				obj.inportPrice = numbers[1];					
-			}
-			arr[i]=obj;
-		}
-    	var obj = new Object();
-    	obj.goodsUnit="总计：";
-    	obj.inportPrice =number;
-    	arr[goods.length] = obj;
-    	tab(arr);
+		var inport = synAjax("GET", '/v0.1/sellreturn/select/group?time='+time, null, '查询失败!');
+    	tab(inport);
         return false;
     }
     /**

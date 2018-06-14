@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import cn.jcloud.goods.domain.Goods;
+import cn.jcloud.common.bean.InportSettlement;
 import cn.jcloud.inport.domain.Inport;
 import cn.jcloud.inport.service.InportService;
 
@@ -35,8 +35,8 @@ public class InportController {
 		return service.getAll();
 	}
 	@RequestMapping(value = "select/group", method = RequestMethod.GET)
-	public String[] selectGroupByGoodsName(String goodsName,String time){
-		return service.getGroupByGoodsName(goodsName,time);
+	public List<InportSettlement> selectGroup(String time){
+		return service.getGroup(time);
 	}
 	@RequestMapping(value = "select/month", method = RequestMethod.GET)
 	public Double selectpByMonth(String time){
