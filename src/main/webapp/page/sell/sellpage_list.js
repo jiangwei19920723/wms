@@ -169,8 +169,8 @@ layui.config({
                 }
         		,success: function (layero, index) {  
         		$(layero).find('iframe')[0].contentWindow.getId(data.id);
-            } 
-              });
+				} 
+            });
           }
         if (obj.event == 'print') {
         	window.open("print.html?id="+data.id, "_blank", "scrollbars=yes,resizable=1,modal=false,alwaysRaised=yes");
