@@ -53,14 +53,22 @@
 						<input type="text" name="goodsName" required  lay-verify="required" placeholder="请输入货物名称" autocomplete="off" class="layui-input info_input">
 					</div>
 				</div> -->
-				<div class="layui-form-item">
+				<div class="ayui-form-item">
+					<label class="layui-form-label">货物名称</label>
+					<div class="layui-input-block">
+						<select id="goodsName" name="goodsName" lay-search="" lay-filter="goodsName">
+							<option value=""></option>
+						</select>
+					</div>
+				</div>
+				<!--<div class="layui-form-item">
 				    <label class="layui-form-label">货物名称</label>
 				    <div class="layui-input-block">
 				      <select name="goodsName" lay-verify="required" id="goodsName" lay-filter="goodsName">
 				        <option value=""></option>
 				      </select>
 				    </div>
-				  </div>
+				  </div>-->
 				<div class="layui-form-item">
 					<label class="layui-form-label">货物编码</label>
 					<div class="layui-input-block">

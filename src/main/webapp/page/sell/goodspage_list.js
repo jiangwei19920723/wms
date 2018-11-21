@@ -7,7 +7,11 @@ layui.config({
         $ = layui.jquery,
         table=layui.table,
         laydate=layui.laydate;
-
+    form.on('submit(LAY-app-contcomm-search)', function (data) {
+        var name = $('input[name=name]').val();
+        var res = synAjaxJson("GET", '/v0.1/goods/select', 'goodsName='+name, "查询失败！");
+        tab(res);
+    });
 
     /*数据表格初始化*/
     function getDataCallBack() {

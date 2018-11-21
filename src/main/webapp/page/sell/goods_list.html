@@ -11,7 +11,6 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="format-detection" content="telephone=no">
 <link rel="stylesheet" href="/layui/css/layui.css" media="all" />
-<link rel="stylesheet" href="/css/jcDate.css" media="all" />
 <script type="text/javascript" src="/layui/layui.js"></script>
 <script type="text/javascript" src="/js/propJFA.js"></script>
 <script type="text/javascript" src="/js/config.js"></script>
@@ -44,26 +43,21 @@
 <body>
 	<!--以下为条件查询待完善  !!!目测大坑-->
 	<div class="layui-row queryRow">
-	<!--<div class="layui-row queryRow">
-	            <div class="layui-col-xs6 over_time_1">
-	                <div class="grid-demo grid-demo-bg1">
-	                    发生时间:
-	                    <div class="layui-inline">
-	                        <input type="text" class="layui-input" id="start_time">
-	                    </div>至
-	                    <div class="layui-inline">
-	                        <input type="text" class="layui-input" id="end_time">
-	                    </div>
-	                </div>
-	            </div>
-	            <div class="layui-col-xs6 over_time_2">
-	               <div class="grid-demo">
-	                        <div class="layui-btn-group">
-	                            <button class="layui-btn ">查询</button>
-	                        </div>
-	                </div>
-	            </div>
-	        </div>-->
+		<div class="layui-form-item">
+			<div class="layui-inline">
+				<label class="layui-form-label">货物名称</label>
+				<div class="layui-input-inline">
+					<input type="text" class="layui-input" name="name" placeholder="请输入">
+				</div>
+			</div>
+			<div class="layui-inline">
+				<button class="layui-btn layuiadmin-btn-comm" data-type="reload" lay-submit
+						lay-filter="LAY-app-contcomm-search">
+					查询
+				</button>
+			</div>
+		</div>
+	</div>
 
 
 	<fieldset class="layui-elem-field invoice_case_fieldsete">
